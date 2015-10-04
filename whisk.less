@@ -1,0 +1,313 @@
+//MARGINS
+
+	.mar(@mt: 0; @mr: 0; @mb: 0; @ml: 0;) when (isnumber(@mr)) and (isnumber(@ml)) { 
+	  margin: ~"@{mt}px" ~"@{mr}px" ~"@{mb}px" ~"@{ml}px";
+	  margin: ~"@{mt}rem" ~"@{mr}rem" ~"@{mb}rem" ~"@{ml}rem";
+	}
+
+	.mar(@mt: 0; @mr: 0; @mb: 0; @ml: 0;) when (isstring(@mr)) and (isstring(@ml)) { 
+	  margin: ~"@{mt}px" ~"@{mr}" ~"@{mb}" ~"@{ml}px";
+	  margin: ~"@{mt}rem" ~"@{mr}" ~"@{mb}rem" ~"@{ml}";
+	}
+
+	.marTop(@martValue) {
+		@remValue: @martValue;
+  		@pxValue: (@martValue * 10);
+  		margin-top: ~"@{pxValue}px"; 
+  		margin-top: ~"@{remValue}rem";
+	}
+
+	.marRight(@marrValue) {
+		@remValue: @marrValue;
+  		@pxValue: (@marrValue * 10);
+  		margin-right: ~"@{pxValue}px"; 
+  		margin-right: ~"@{remValue}rem";
+	}
+
+	.marBottom(@marbValue) {
+		@remValue: @marbValue;
+  		@pxValue: (@marbValue * 10);
+  		margin-bottom: ~"@{pxValue}px"; 
+  		margin-bottom: ~"@{remValue}rem";
+	}
+
+	.marLeft(@marlValue) {
+		@remValue: @marlValue;
+  		@pxValue: (@marlValue * 10);
+  		margin-left: ~"@{pxValue}px"; 
+  		margin-left: ~"@{remValue}rem";
+	}
+
+
+//PADDING
+
+	.pad(@pt: 0; @pr: 0; @pb: 0; @pl: 0;) { 
+	  padding: ~"@{pt}px" ~"@{pr}px" ~"@{pb}px" ~"@{pl}px";
+	  padding: ~"@{pt}rem" ~"@{pr}rem" ~"@{pb}rem" ~"@{pl}rem";
+	}
+
+	.pad(@pt: 0; @pr: 0; @pb: 0; @pl: 0;) when (isstring(@pr)) and (isstring(@pl)) { 
+	  padding: ~"@{pt}px" ~"@{pr}" ~"@{pb}" ~"@{pl}px";
+	  padding: ~"@{pt}rem" ~"@{pr}" ~"@{pb}rem" ~"@{pl}";
+	}
+
+	.padTop(@padtValue) {
+		@remValue: @padtValue;
+  		@pxValue: (@padtValue * 10);
+  		padding-top: ~"@{pxValue}px"; 
+  		padding-top: ~"@{remValue}rem";
+	}
+
+	.padRight(@padrValue) {
+		@remValue: @padrValue;
+  		@pxValue: (@padrValue * 10);
+  		padding-right: ~"@{pxValue}px"; 
+  		padding-right: ~"@{remValue}rem";
+	}
+
+	.padBottom(@padbValue) {
+		@remValue: @padbValue;
+  		@pxValue: (@padbValue * 10);
+  		padding-bottom: ~"@{pxValue}px"; 
+  		padding-bottom: ~"@{remValue}rem";
+	}
+
+	.padLeft(@padlValue) {
+		@remValue: @padlValue;
+  		@pxValue: (@padlValue * 10);
+  		padding-left: ~"@{pxValue}px"; 
+  		padding-left: ~"@{remValue}rem";
+	}
+
+//BORDERS
+
+	.border(@size, @type, @color) {
+		
+		@border: ~"@{size} @{type} @{color}";
+		border: ~"@{border}";
+
+	}
+
+//BORDER RADII
+
+	.borderRadius(@radius: 0;) {
+		
+		@remRadius: @radius;
+	  	@pxRadius: (@radius * 10);
+		-webkit-border-radius: ~"@{remRadius}px";
+		-moz-border-radius:     ~"@{remRadius}px";
+		-o-border-radius:     ~"@{remRadius}px";
+		-ms-border-radius:     ~"@{remRadius}px";
+		border-radius:          ~"@{remRadius}px";
+		-webkit-border-radius: ~"@{pxRadius}px";
+		-moz-border-radius:     ~"@{pxRadius}px";
+		-o-border-radius:     ~"@{pxRadius}px";
+		-ms-border-radius:     ~"@{pxRadius}px";
+		border-radius:          ~"@{pxRadius}px";
+		-moz-background-clip:    padding-box;
+		-webkit-background-clip: padding-box;
+		background-clip:         padding-box;
+	}
+
+	
+//TRANSITIONS
+
+	.transition(@count,@duration,@effect) {
+
+		@transition: ~"@{count} @{duration}s @{effect}";
+		
+		-o-transition: ~"@{transition}";
+                    	-ms-transition: ~"@{transition}";
+                    	-moz-transition: ~"@{transition}";
+                    	-webkit-transition:~"@{transition}";
+                   	 transition: ~"@{transition}";
+
+	}
+
+	.transform(@type,@angle,@unit) {
+
+		@transform:~"@{type}(@{angle}@{unit})";
+		
+		-webkit-transform: ~"@{transform}";
+		-moz-transform: ~"@{transform}";
+		-o-transform: ~"@{transform}";
+		-ms-transform: ~"@{transform}";
+		transform: ~"@{transform}";
+
+	}
+
+//TRANSLATE 
+
+	.translateY(@percent) {
+		-webkit-transform:translateY(~"@{percent}");
+		-moz-transform:translateY(~"@{percent}");
+		-o-transform:translateY(~"@{percent}");
+		-ms-transform:translateY(~"@{percent}");
+		transform:translateY(~"@{percent}");
+	}
+
+	.translateX(@percent) {
+		-webkit-transform:translateX(~"@{percent}");
+		-moz-transform:translateX(~"@{percent}");
+		-o-transform:translateX(~"@{percent}");
+		-ms-transform:translateX(~"@{percent}");
+		transform:translateX(~"@{percent}");
+	}
+
+	.translateXY(@percentX, @percentY) {
+		-webkit-transform:translate(~"@{percentX}, @{percentY}");
+		-moz-transform:translate(~"@{percentX}, @{percentY}");
+		-o-transform:translate(~"@{percentX}, @{percentY}");
+		-ms-transform:translate(~"@{percentX}, @{percentY}");
+		transform:translate(~"@{percentX}, @{percentY}");
+	}
+
+//BOX SIZING
+
+	.boxSize(@boxType) {
+		
+		box-sizing: ~"@{boxType}";
+                    	-webkit-box-sizing:  ~"@{boxType}";
+                    	-moz-box-sizing:  ~"@{boxType}";
+                    	-o-box-sizing:  ~"@{boxType}";
+	}
+
+//VARIABLES
+
+	//BREAKPOINTS
+
+	@large-desktop:1280px;
+	@small-desktop:992px;
+	@tablet:768px;
+	@mobile:480px;
+
+	//COLORS
+
+	@primaryColor: #000000;
+	@secondaryColor:#FFFFFF;
+
+	//FONTS
+
+	@baseFontSize:62.5%;
+
+	@headingFont:Helvetica, Arial, sans-serif;
+	@subHeadingFont:Georgia, serif;
+	@bodyFont:Helvetica, Arial, sans-serif;
+
+	.font-size(@sizeValue) {
+		@remValue: @sizeValue;
+		@pxValue: (@sizeValue * 10);
+		font-size: ~"@{pxValue}px"; 
+		font-size: ~"@{remValue}rem";
+		//PROPORTIONAL LINE HEIGHTS
+		@remlhValue: @sizeValue  * 1.2;
+		@pxlhValue: ((@sizeValue * 1.2)  * 10);
+		line-height: ~"@{pxlhValue}px"; 
+		line-height: ~"@{remlhValue}rem";
+
+	}
+
+	.pageHeader {
+
+		font-family: helvetica, arial, sans-serif;
+		font-weight:500;
+
+		a {
+			color:@primaryColor;
+			&:hover {
+				color:@primaryColor;
+				text-decoration: none;
+			}
+		}
+
+	}
+
+	.pageHeader--h1 {
+
+		.pageHeader;
+		.font-size(3.4);
+		font-family:@headingFont;
+		
+		@media only screen and (min-width:@small-desktop) {
+			.font-size(4.2);
+		}
+		
+	}
+
+	.pageHeader--h2 {
+
+		.pageHeader;
+		.font-size(2);
+		font-family:@headingFont;
+		
+		@media only screen and (min-width:@small-desktop) {
+			.font-size(3.6);
+		}
+
+	}
+
+	.pageHeader--h3 {
+
+		.pageHeader;
+		.font-size(2);
+		font-family:@headingFont;
+
+		@media only screen and (min-width:@small-desktop) {
+			.font-size(3);
+		}
+
+	}
+
+	.pageHeader--h4 {
+
+		.pageHeader;
+		.font-size(1.8);
+		font-family:@subHeadingFont;
+
+		@media only screen and (min-width:@small-desktop) {
+			.font-size(2.6);
+		}
+
+	}
+
+	.pageHeader--h5 {
+
+		.pageHeader;
+		.font-size(1.6);
+		font-family:@subHeadingFont;
+		
+		@media only screen and (min-width:@small-desktop) {
+			.font-size(2.4);
+		}
+
+	}
+
+	.pageHeader--h6 {
+
+		.pageHeader;
+		.font-size(1.4);
+		font-family:@subHeadingFont;
+		
+		@media only screen and (min-width:@small-desktop) {
+			.font-size(2);
+		}
+
+	}
+
+	.pageParagraph {
+		font-family: @bodyFont;
+		color: @primaryColor;
+		.font-size(1.4);
+	}
+
+	.pageList {
+		font-family: @bodyFont;
+		color: @primaryColor;
+		.font-size(1.4);
+		
+		li {
+			.padTop(0.8);
+			.pad(0.8);
+		}
+		
+	}
